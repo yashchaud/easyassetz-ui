@@ -17,6 +17,7 @@ import { Calendar } from "@com/ui/calendar";
 import { RadioGroupItem, RadioGroup } from "@com/ui/radio-group";
 import { Checkbox } from "@com/ui/checkbox";
 import Datepicker from "./Datepicker";
+import Nav from "./Nav";
 import Logo from "@/components/image/Logo.png";
 const PersonalDetails = () => {
   const [showAdharFields, setShowAdharFields] = useState(false);
@@ -97,7 +98,8 @@ const PersonalDetails = () => {
 
   return (
     <div className="flex flex-col md:grid md:grid-cols-[300px_1fr] gap-8 p-4 sm:p-8 md:p-12 lg:p-16">
-      <nav className="space-y-4">
+      <Nav />
+      {/* <nav className="space-y-4">
         <img className="w-[180px] mb-2" src={Logo} alt="" />
         <Link
           className="flex items-center gap-2 rounded-md bg-gray-100 px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-200 focus:bg-gray-200 focus:outline-none dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:bg-gray-700"
@@ -127,14 +129,14 @@ const PersonalDetails = () => {
           <HomeIcon className="h-5 w-5" />
           Financial assets
         </Link>
-      </nav>
+      </nav> */}
       <div className="space-y-6">
         <h2 className="text-2xl font-bold">Personal Details</h2>
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="grid grid-cols-1 sm:grid-cols-3 gap-4"
         >
-          <div className="space-y-2">
+          <div className="space-y-2 sm:col-span-3">
             <Label htmlFor="full-name">Full Legal Name</Label>
             <Input
               id="full-name"
@@ -150,6 +152,7 @@ const PersonalDetails = () => {
               </span>
             )}
           </div>
+
           <div className="space-y-2">
             <Label htmlFor="gender">Gender</Label>
             <Controller
@@ -413,10 +416,7 @@ const PersonalDetails = () => {
                   id="correspondenceEmail"
                   placeholder="example@email.com"
                   type="email"
-                  {...register("correspondenceEmail", {
-                    required:
-                      !sameAsLoginEmail && "correspondenceEmail is required",
-                  })}
+                  {...register("correspondenceEmail")}
                 />
                 {errors.correspondenceEmail && (
                   <span className="text-red-500">
@@ -685,9 +685,9 @@ const PersonalDetails = () => {
 
           {/* Adhar Section */}
           <div className="col-span-full space-y-4">
-            <h2 className="text-2xl font-bold">Adhar</h2>
+            <h2 className="text-2xl font-bold">Aadhar</h2>
             <div className="space-y-2">
-              <Label htmlFor="adhar">Do you have an Adhar?</Label>
+              <Label htmlFor="adhar">Do you have an Aadhar?</Label>
               <Controller
                 name="adhar"
                 control={control}
@@ -736,7 +736,7 @@ const PersonalDetails = () => {
             {showAdharFields && (
               <>
                 <div className="space-y-2">
-                  <Label htmlFor="adhar-number">Adhar Number</Label>
+                  <Label htmlFor="adhar-number">Aadhar Number</Label>
                   <Input
                     id="adhar-number"
                     placeholder="Adhar Number"
@@ -757,7 +757,7 @@ const PersonalDetails = () => {
                   </Label>
                   <Input
                     id="adhar-name"
-                    placeholder="Full Name - Name as per Adhar"
+                    placeholder="Full Name - Name as per Aadhar"
                     type="text"
                     {...register("adharName", {
                       required: "Full Name is required",
@@ -769,7 +769,7 @@ const PersonalDetails = () => {
                     </span>
                   )}
                 </div>
-                <div className="space-y-2">
+                {/* <div className="space-y-2">
                   <Label htmlFor="adhar-file">Upload File</Label>
                   <Input
                     id="adhar-file"
@@ -783,7 +783,7 @@ const PersonalDetails = () => {
                       {errors.adharFile.message}
                     </span>
                   )}
-                </div>
+                </div> */}
               </>
             )}
           </div>
@@ -866,7 +866,7 @@ const PersonalDetails = () => {
                     </span>
                   )}
                 </div>
-                <div className="space-y-2">
+                {/* <div className="space-y-2">
                   <Label htmlFor="pan-file">Upload File</Label>
                   <Input
                     id="pan-file"
@@ -880,7 +880,7 @@ const PersonalDetails = () => {
                       {errors.panFile.message}
                     </span>
                   )}
-                </div>
+                </div> */}
               </>
             )}
           </div>
@@ -1002,7 +1002,7 @@ const PersonalDetails = () => {
                     </span>
                   )}
                 </div>
-                <div className="space-y-2">
+                {/* <div className="space-y-2">
                   <Label htmlFor="driving-license-file">Upload File</Label>
                   <Input
                     id="driving-license-file"
@@ -1016,7 +1016,7 @@ const PersonalDetails = () => {
                       {errors.drivingLicenceFile.message}
                     </span>
                   )}
-                </div>
+                </div> */}
               </>
             )}
           </div>
@@ -1134,7 +1134,7 @@ const PersonalDetails = () => {
                     </span>
                   )}
                 </div>
-                <div className="space-y-2">
+                {/* <div className="space-y-2">
                   <Label htmlFor="pp-file">Upload File</Label>
                   <Input
                     id="pp-file"
@@ -1148,7 +1148,7 @@ const PersonalDetails = () => {
                       {errors.passportFile.message}
                     </span>
                   )}
-                </div>
+                </div> */}
               </>
             )}
           </div>
